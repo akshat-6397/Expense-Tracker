@@ -1,0 +1,106 @@
+/*backgroud photo*/
+*{
+    margin:0px;
+    padding:0px;
+}
+.log{
+    background: url(https://media.istockphoto.com/photos/login-web-form-picture-id1205116274?b=1&k=6&m=1205116274&s=170667a&w=0&h=4pAoKhCKYJZeYl3CFmQbHoV7mfeoKTYAcWVA6xjzQRk=);
+    margin:0px;
+    padding:0px;
+    background-size: cover;
+    height:100vh;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+/*login box*/
+.log{
+    margin:auto;
+    background-color:lightgrey;
+    padding:0px;
+    margin-top:0px;
+}
+/*.container{
+    background: url(https://media.istockphoto.com/photos/login-web-form-picture-id1205116274?b=1&k=6&m=1205116274&s=170667a&w=0&h=4pAoKhCKYJZeYl3CFmQbHoV7mfeoKTYAcWVA6xjzQRk=);
+    margin:auto;
+    width:1000px;
+    background-color:white;
+    height:650px;
+    display:block;
+}*/
+.login-box{
+    width:320px;
+    height:420px;
+    top: 30%;
+    left: 40%;
+    position: absolute;
+    background: black;
+    color:white;
+    transform: (-50%, -50%);
+    box-sizing: border-box;
+    padding:10px;
+    transform: none;
+}
+/*Image CSS*/
+.image{
+    border-radius: 100px;
+    width: 70px;
+    height:70px;
+    position: absolute;
+    margin-left:35%;
+    top:-35px;
+    outline:none;
+}
+/*heading inside box*/
+.login-box h2{
+   text-align:center;
+   margin:0px;
+   padding:0px;
+   margin-top:30px;
+   font-size: 25px;
+    font-family: sans-serif;
+}
+/*paragraph Styling*/
+.login-box p{
+    margin:0px;
+    padding:0px;
+    font-size: 18px;
+}
+/*input boxes styling*/
+.login-box input{
+    margin-bottom: 20px;
+    width:100%;
+}
+.login-box input[type = "text"] , input[type = "password"]
+{
+    border:none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    height:40px;
+    outline:none;
+    color: white;
+}
+.login-box input[type = "submit"]
+{
+    background-color: royalblue;
+    border-radius: 40px;
+    height:30px;
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    outline: none;
+}
+/*footer Styling*/
+.login-box p a{
+    text-decoration: none;
+    color:royalblue;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+.login-box input[type = "submit"]:hover{
+    background-color:darkgreen;
+}
+.container h1{
+    font-size:50px;
+    color:white;
+}

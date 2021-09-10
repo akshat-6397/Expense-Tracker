@@ -1,0 +1,131 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.container{
+    display:flex;
+}
+.nav{
+width: 100vw;
+background-color: black;
+color:white;
+height:8vh;
+}
+.nav h3{
+    padding-top: 15px;
+    font-size: 24px;
+    margin-left: 5%;
+}
+.up{
+    display: flex;
+    border: 1px solid green;
+}
+.upl{
+    font-size: 70px;
+    margin-left: 20px;
+}
+.upr{
+    margin-top: 30px;
+    margin-left: 10px;
+    height:15vh;
+    justify-content: center;
+    align-items: center;
+}
+.upr .fa-circle{
+    margin-left: 20px;
+    font-size: 10px;
+    color:green;
+    margin-top: 15px;
+}
+.upr h3{
+    margin-left: 30px;
+    margin-top: -16px;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+.upr span{
+    margin-bottom: 0px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+.upl .fa-user-circle-o{
+    color:royalblue;
+    margin-top: 20px;
+}
+.below{
+    border:1px solid black;
+    padding:10px;
+    list-style: none;
+    list-style-type: none;
+}
+.left{
+    border:1px solid blue;
+    width:25vw;
+    height:90vh;
+}
+.lii{
+    padding:7px;
+    list-style-type: none;
+    height:25px;
+}
+.lii i{
+    color: royalblue;
+}
+.lii a{
+    margin-left: 10px;
+    text-decoration: none;
+}
+.lii:hover{
+    background-color: black;
+    color:white;
+}
+.lii:hover a{
+    color:white;
+}
+.lii:hover i{
+    color: white;
+}
+.profile{
+    background-color: black;
+}
+.profile i{
+    color:white;
+}
+.profile a{
+    color:white;
+}
+/*right*/
+.right{
+    width:75vw;
+}
+.right h1{
+    margin-top:20px;
+    margin-left: 30px;
+    font-family: sans-serif;
+}
+.form{
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+.form p{
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.form input{
+    width:60%;
+    height:20px;
+}
+.btn{
+    max-width:80px;
+    margin-top: 20px;
+    background-color: royalblue;
+    color:white;
+    min-height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}

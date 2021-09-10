@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="nav"><h3>Expense Tracker</h3></div>
+    <div class="container">
+        <div class="left">
+            <div class="up">
+            <div class="upl"><i class="fa fa-user-circle-o"></i></div>
+            <div class="upr"><span id = "profile"></span><br><i class="fa fa-circle"></i><h3>Online</h3></div>
+            </div>
+            <div class="below">
+            <ul>
+                <div class="lii"><li><i class="fa fa-home"></i><a href = "main.html" >Dashboard</a></li></div>
+                <div class="lii"><li><i class="fa fa-list-ul"></i><a href = "expenses.html" >Expenses</a></li></div>
+                <div class="lii profile"><li><i class="fa fa-user"></i><a href = "#" >Profile</a></li></div>
+                <div class="lii"><li><i class="fa fa-pencil-square-o"></i><a href = "chpassword.html" >Change Password</a></li></div>
+                <div class="lii"><li><i class="fa fa-power-off"></i><a href = "login.html" >Logout</a></li></div>
+            </ul>
+            </div>
+        </div>
+        <div class="right">
+            <h1>Profile</h1>
+            <div class="form">
+                <form id = "form">
+                    <p>Full Name</p>
+                    <input type = "text" id = "full" autocomplete="off"><span id = "fullname"></span>
+                    <p>E-Mail</p>
+                    <input type = "email" id = "em" autocomplete="off"><span id = "email"></span>
+                    <p>Mobile Number</p>
+                    <input type = "number" id = "mnumber" autocomplete="off"><span id = "number"></span><br>
+                    <input type = "submit" class = "btn" value = "Update">
+                </form>
+            </div>
+        </div>
+        <script type = "text/javascript">
+        document.getElementById("profile").innerHTML = localStorage.getItem("textvalue");
+        document.getElementById("fullname").innerHTML = localStorage.getItem("uname");
+        document.getElementById("email").innerHTML = localStorage.getItem("email");
+        document.getElementById("number").innerHTML = localStorage.getItem("phone");
+            const fullName = document.getElementById("full");
+            const eMail = document.getElementById("em");
+            const mNum = document.getElementById("mnumber");
+            const form = document.getElementById("form");
+            form.addEventListener('submit' , (event) => {
+           event.preventDefault();
+           validateForm();
+       })
+       const validateForm = () => {
+           const fullName = full.value.trim();
+           const eMail = em.value.trim();
+           const mNum = mnumber.value.trim();
+           if(fullName === ""||eMail === ""||mNum === "")
+           {
+               alert('Filds cannot be empty');
+           }else{
+               localStorage.setItem("textvalue",fullName);
+               localStorage.setItem("uname",fullName);
+               localStorage.setItem("email",eMail);
+               localStorage.setItem("phone",mNum);
+               alert('Values Update successfully ....please refresh!!');
+           }
+       }
+      
+        </script>
+
+</body>
+</html>

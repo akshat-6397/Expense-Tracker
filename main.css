@@ -1,0 +1,160 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.container{
+    display:flex;
+    transition:500ms;
+}
+.nav{
+width: 100vw;
+background-color: black;
+color:white;
+height:8vh;
+}
+.nav h3{
+    padding-top: 15px;
+    font-size: 24px;
+    margin-left: 5%;
+}
+.up{
+    display: flex;
+    border: 1px solid green;
+}
+.upl{
+    font-size: 70px;
+    margin-left: 20px;
+}
+.upr{
+    margin-top: 30px;
+    margin-left: 10px;
+    height:15vh;
+    justify-content: center;
+    align-items: center;
+}
+.upr .fa-circle{
+    margin-left: 20px;
+    font-size: 10px;
+    color:green;
+    margin-top: 15px;
+}
+.upr h3{
+    margin-left: 30px;
+    margin-top: -16px;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+.upr span{
+    margin-bottom: 0px;
+    margin-left: 15px;
+    font-size: 30px;
+}
+.upl .fa-user-circle-o{
+    color:royalblue;
+    margin-top: 20px;
+}
+.below{
+    border:1px solid black;
+    padding:10px;
+    list-style: none;
+    list-style-type: none;
+}
+.left{
+    border:1px solid blue;
+    width:25vw;
+    height:90vh;
+}
+.lii{
+    padding:7px;
+    list-style-type: none;
+    height:25px;
+}
+.lii i{
+    color: royalblue;
+}
+.lii a{
+    margin-left: 10px;
+    text-decoration: none;
+}
+.lii:hover{
+    background-color: black;
+    color:white;
+}
+.lii:hover a{
+    color:white;
+}
+.lii:hover i{
+    color: white;
+}
+.dashboard{
+    background-color: black;
+}
+.dashboard i{
+    color:white;
+}
+.dashboard a{
+    color: white;;
+}
+/*right */
+.right{
+    width:75vw;
+}
+.right h1{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+.main{
+    margin-top: 50px;
+    display: grid;
+    grid-template-rows: 180px 180px;
+    grid-template-columns: 220px 220px 220px 220px;
+    grid-column-gap: 25px;
+    grid-row-gap:25px;
+    margin-left: 20px;
+    margin-right: 45px;
+}
+.div1{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.main h3{
+    text-align: center;
+    font-size: 20px;
+}
+.div2{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div3{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div4{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div5{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div6{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div7{
+    border:1px solid black;
+    background-color: lightblue;
+}
+.div1c{
+    margin-left:55px;
+    margin-top: 50px;;
+}
+.div1c i{
+    font-size: 30px;
+}
+.div1c span{
+    margin-left: 10px;
+    font-size: 30px;
+}

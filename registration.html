@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "registration.css">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class = "container">
+        <div class = "header"><h2>REGISTRATION FORM</h2></div>
+        <form class = "form" id = "form">
+        <div class="form-control ">
+            <label>Username</label>
+            <input type = "text"id = "username" autocomplete="off" placeholder="Type your Username">
+            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-check-circle"></i>
+            <small>Error Msg</small>
+        </div>
+        <div class="form-control">
+            <label>E-Mail</label>
+            <input type = "Email" id ="email" autocomplete="off" placeholder="Type your email here">
+            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-check-circle"></i>
+            <small>Error Msg</small>
+        </div>
+        <div class="form-control">
+            <label>Phone Number</label>
+            <input type = "Number" id = "phone" autocomplete="off" placeholder="Type your phone number">
+            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-check-circle"></i>
+            <small>Error Msg</small>
+        </div>
+        <div class="form-control">
+            <label>Password</label>
+            <input type = "Password"id = "password" autocomplete="off" placeholder="Type your password">
+            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-check-circle"></i>
+            <small>Error Msg</small>
+        </div>
+        <div class="form-control">
+            <label>Confirm Password</label>
+            <input type = "Password"id = "cpassword" autocomplete="off" placeholder="enter your password again">
+            <i class="fa fa-exclamation-circle"></i>
+            <i class="fa fa-check-circle"></i>
+            <small>Error Msg</small>
+        </div>
+        <input type = "submit" value = "Submit" class = "btn" name = "">
+    </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type = "text/javascript">
+        const form = document.getElementById('form');
+        const usernameVal = document.getElementById('username');
+        const emailVal = document.getElementById('email');
+        const phoneVal = document.getElementById('phone');
+        const passwordVal = document.getElementById('password');
+        const cpasswordVal = document.getElementById('cpassword');
+
+        //add event
+       form.addEventListener('submit' , (event) => {
+           event.preventDefault();
+           validate();
+       })
+       const sendData = (usernameVal,emailVal,phoneVal,sRate,count) => {
+           if(sRate === count){
+           alert('Registration Successfull');
+           swal("Welcome! "+usernameVal,"Registration Successfull", "success");
+           localStorage.setItem("uname",usernameVal);
+           localStorage.setItem("email",emailVal);
+           localStorage.setItem("phone",phoneVal);
+           //location.href = 'profile.html';
+           }
+       }
+       //check all
+       const successMsg = (usernameVal,emailVal,phoneVal) => {
+           let formCon = document.getElementsByClassName('form-control');
+           var count = formCon.length-1;
+           for(var i=0;i<formCon.length;i++){
+               if(formCon[i].className === "form-control success"){
+                var sRate = 0+i;
+                console.log(sRate);
+                sendData(usernameVal,emailVal,phoneVal,sRate,count);
+            }else
+            return false;
+           }
+       }
+       //more event validate
+        const isEmail = (emailVal) =>{
+            var atSymbol = emailVal.indexOf("@");
+            if(atSymbol<1) return false;
+            var dot = emailVal.lastIndexOf('.');
+            if(dot <= atSymbol+4) return false;
+            if(dot === emailVal.length-1) return false;
+            return true;
+        }
+        const validate = () => {
+            const usernameVal = username.value.trim();
+            const emailVal = email.value.trim();
+            const phoneVal = phone.value.trim();
+            const passwordVal = password.value.trim();
+            const cpasswordVal = cpassword.value.trim();
+            //username validation
+            if(usernameVal === ""){
+                setErrorMsg(username,'Username cannot be blank');
+            }else if(usernameVal.length <= 2){
+                setErrorMsg(username,'Minimum three characters required');
+            }else{
+                setSuccessMsg(username);
+            }
+            //validate email
+            if(emailVal === ""){
+                setErrorMsg(email,'E-Mail cannot be blank');
+            }else if(!isEmail(emailVal)){
+                setErrorMsg(email,'Not a Valid E-Mail');
+            }else{
+                setSuccessMsg(email);
+            }
+            //validate phone number
+            if(phoneVal == ""){
+                setErrorMsg(phone,'This Field cannot be blank');
+            }else if(phoneVal.length!=10){
+                setErrorMsg(phone,'This field should contain 10 letters only');
+            }else if(phoneVal[0] == '1'||phoneVal[0] == '2'||phoneVal[0] == '3'||phoneVal[0] == '4'||phoneVal[0] == '5'||phoneVal[0] == '0'){
+                setErrorMsg(phone,'Invalid phone number');
+            }
+            else{
+                setSuccessMsg(phone);
+            }
+            //validate password
+            if(passwordVal === ""){
+                setErrorMsg(password,'password must contains special characters uppercase letters');
+            }else if(passwordVal.length<6){
+                setErrorMsg(password,'password must be atleast 6 characters');
+            }else if(passwordVal.length>10){
+                setErrorMsg(password,'it should not exceed 10 characters');
+            }else{
+                setSuccessMsg(password);
+            }
+            //validate confirm password
+            if(cpasswordVal == ""){
+                setErrorMsg(cpassword,'This Field cannot be blank');
+            }else if(cpasswordVal!=passwordVal){
+                setErrorMsg(cpassword,'password not matched');
+            }
+            else{
+                setSuccessMsg(cpassword);
+            }
+            successMsg(usernameVal,emailVal,phoneVal);
+        }
+            function  setErrorMsg(input ,errormsgs){
+                    const formcontrol = input.parentElement;
+                    const small = formcontrol.querySelector('small');
+                    formcontrol.className = "form-control error";
+                    small.innerText = errormsgs;
+            }
+            function setSuccessMsg(input){
+                const formcontrol = input.parentElement;
+                formcontrol.className = "form-control success";
+            }
+
+</script>
+</body>
+</html>

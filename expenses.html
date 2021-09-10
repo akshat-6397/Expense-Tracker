@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "expenses.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Expenses</title>
+</head>
+<body>
+    <div class="nav"><h3>Expense Tracker</h3></div>
+    <div class="container">
+        <div class="left">
+            <div class="up">
+            <div class="upl"><i class="fa fa-user-circle-o"></i></div>
+            <div class="upr"><span id = "profile"></span><br><i class="fa fa-circle"></i><h3>Online</h3></div>
+            </div>
+            <div class="below">
+            <ul>
+                <div class="lii"><li><i class="fa fa-home"></i><a href = "main.html" >Dashboard</a></li></div>
+                <div class="lii expenses"><li><i class="fa fa-list-ul"></i><a href = "#" >Expenses</a></li></div>
+                <div class="lii"><li><i class="fa fa-user"></i><a href = "profile.html" >Profile</a></li></div>
+                <div class="lii"><li><i class="fa fa-pencil-square-o"></i><a href = "chpassword.html" >Change Password</a></li></div>
+                <div class="lii"><li><i class="fa fa-power-off"></i><a href = "login.html" >Logout</a></li></div>
+            </ul>
+            </div>
+        </div>
+        <div class="right">
+            <h1>Expenses </h1>
+            <p id = "error-msg"></p>
+            <div class = "expense-form">
+            <form id = "form">
+                <p>Please Enter your Expense</p>
+                <input type = "text" id = "expense-input"name = "" autocomplete = "off">
+                <p>Please Enter your Expense Amount</p>
+                <input type = "number" id = "amount-input" name = "" autocomplete = "off">
+               <button class = "btn" type = "submit">Add Expense</button>
+            </form>
+            </div>
+            <!--<h4>Expense here</h4>
+            <p class = "expense" id = "expenses">$0.00</p>-->
+            <h3>History</h3>
+            <!--Dynamic unordered list-->
+            <ul id = "list" class = "list"></ul>
+            </div>
+        </div>
+        
+        
+    <script type = "text/javascript">
+        document.getElementById("profile").innerHTML = localStorage.getItem("textvalue");
+        const form = document.getElementById("form");
+       // const totalExpense = document.getElementById("expenses");
+        const list = document.getElementById("list");
+        const text = document.getElementById("expense-input");
+        const amount = document.getElementById("amount-input");
+
+        const localStorageTransactions = JSON.parse(
+        localStorage.getItem("transactions"));
+        let transactions =
+            localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
+                //Add transaction
+
+function addTransaction(e){
+    e.preventDefault();
+    if(text.value ==="") {
+      document.getElementById("error-msg").innerHTML =
+        "<span >Error: Please enter description and amount!</span>";
+      setTimeout(
+        () => (document.getElementById("error-msg").innerHTML = ""),
+        5000
+      );
+    } else {
+      const transaction = {
+        id: generateID(),
+        text: text.value,
+        amount: +amount.value,
+      };
+  
+      transactions.push(transaction);
+     addTransactionDOM(transaction);
+
+    updateValues();
+
+    updateLocalStorage();
+
+    text.value = "";
+    amount.value = "";
+  }
+}
+//Generate random id
+function generateID(){
+    return Math.floor(Math.random() * 100000000);
+}
+//Transaction History
+function addTransactionDOM(transaction){
+    const item = document.createElement("li");
+
+    item.innerHTML = `
+    ${transaction.text+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"}<i class="fa fa-inr"></i>&nbsp${Math.abs(
+    transaction.amount
+  )}<button class="delete-btn" onclick="removeTransaction(${
+    transaction.id
+  })"><i class="fa fa-trash"></i></button>
+  `;
+
+    list.appendChild(item);
+}
+function updateValues(){
+    const amounts = transactions.map((transaction) => transaction.amount);
+
+  const total = amounts.reduce((bal, value) => (bal += value), 0).toFixed(2);
+
+ /* const income = amounts
+    .filter((value) => value > 0)
+    .reduce((bal, value) => (bal += value), 0)
+    .toFixed(2);*/
+
+  const expense =
+    amounts
+      .filter((value) => value > 0)
+      .reduce((bal, value) => (bal += value), 0) *(1).toFixed(2);
+
+  //totalExpense.innerText = `$${expense}`;
+  localStorage.setItem("total",expense);
+}
+//remove transaction by id
+function removeTransaction(id) {
+  transactions = transactions.filter((transaction) => transaction.id !== id);
+
+  updateLocalStorage();
+
+  start();
+}
+//update local storage transaction
+function updateLocalStorage() {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+}
+
+//start app
+function start() {
+  list.innerHTML = "";
+  transactions.forEach(addTransactionDOM);
+  updateValues();
+}
+
+start();
+        form.addEventListener("submit", addTransaction);
+        </script>
+     
+</body>
+</html>

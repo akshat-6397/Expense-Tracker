@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="nav"><h3>Expense Tracker</h3></div>
+    <div class="container">
+        <div class="left">
+            <div class="up">
+            <div class="upl"><i class="fa fa-user-circle-o"></i></div>
+            <div class="upr"><span id = "profile"></span><br><i class="fa fa-circle"></i><h3>Online</h3></div>
+            </div>
+            <div class="below">
+            <ul>
+                <div class="lii dashboard"><li><i class="fa fa-home"></i><a href = "#" >Dashboard</a></li></div>
+                <div class="lii"><li><i class="fa fa-list-ul"></i><a href = "expenses.html" >Expenses</a></li></div>
+                <div class="lii"><li><i class="fa fa-user"></i><a href = "profile.html" >Profile</a></li></div>
+                <div class="lii"><li><i class="fa fa-pencil-square-o"></i><a href = "../Mini Project/chpassword.html" >Change Password</a></li></div>
+                <div class="lii"><li><i class="fa fa-power-off"></i><a href = "#" >Logout</a></li></div>
+            </ul>
+            </div>
+        </div>
+        <div class="right">
+            <h1>Dashboard</h1>
+            <div class="main">
+                <div class="div1"><h3>Today's Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense">0</span></div></div>
+                <div class="div2"><h3>Yesterday's Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense1">0</span></div></div>
+                <div class="div3"><h3>Last 7 days Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense2">0</span></div></div>
+                <div class="div4"><h3>Last 30 days Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense3">0</span></div></div>
+                <div class="div5"><h3>Current Year's Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense4">0</span></div></div>
+                <div class="div6"><h3>Total Expense</h3><div class = "div1c"><i class="fa fa-inr"></i><span id = "expense5">0</span></div></div>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript">
+    document.getElementById("profile").innerHTML = localStorage.getItem("textvalue");
+    document.getElementById("expense").innerHTML = localStorage.getItem("total");
+    document.getElementById("expense1").innerHTML = localStorage.getItem("total");
+    document.getElementById("expense2").innerHTML = localStorage.getItem("total");
+    document.getElementById("expense3").innerHTML = localStorage.getItem("total");
+    document.getElementById("expense4").innerHTML = localStorage.getItem("total");
+    document.getElementById("expense5").innerHTML = localStorage.getItem("total");
+    </script>
+</body>
+</html>
